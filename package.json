@@ -1,0 +1,34 @@
+{
+  "name": "gol-app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "postinstall": "webpack -p --config webpack.prod.config.js",
+    "server:dev": "nodemon server/index.js",
+    "client:dev": "webpack --watch",
+    "start:dev": "concurrently \"npm run client:dev\" \"npm run server:dev\""
+  },
+  "author": "Bart Wijnants",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "gol-kata": "github:bartw/gol-kata",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "nodemon": "^1.11.0"
+  },
+  "engines": {
+    "node": "6.9.1"
+  }
+}
