@@ -10,8 +10,16 @@
     "client:dev": "webpack --watch",
     "start:dev": "concurrently \"npm run client:dev\" \"npm run server:dev\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bartw/gol-app.git"
+  },
   "author": "Bart Wijnants",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bartw/gol-app/issues"
+  },
+  "homepage": "https://github.com/bartw/gol-app#readme",
   "dependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
