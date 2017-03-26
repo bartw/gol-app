@@ -1,4 +1,5 @@
 import React from 'react';
+import worldService from '../services/worldService';
 import World from './World';
 
 export default class App extends React.Component {
@@ -24,29 +25,12 @@ export default class App extends React.Component {
     }
 
     getNextWorld() {
-        const body = JSON.stringify({ world: this.state.world });
-        const options = {
-            method: 'POST',
-            body: body,
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        };
-        fetch('/api/world', options)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                this.setState({ world: data.world });
-            })
-            .catch(error => {
-                console.log(error.message);
-                this.reset();
-            });
+        worldService.getNextWorld(this.state.world).then(nextWorld => {
+            this.setState({ world: nextWorld });
+        }).catch(error => {
+            console.log(error.message);
+            this.reset();
+        });
     }
 
     reset() {
